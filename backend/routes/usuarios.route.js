@@ -1,0 +1,10 @@
+const express=require('express')
+const router=express.Router()
+const usuariosController=require('../controllers/usuarios.controller')
+const {validateInputUsuario}=require('../middlewares/usuarios-validator')
+router.get('/',usuariosController.obtenerTodas)
+router.get('/:id',usuariosController.obtenerPorId)
+router.post('/',validateInputUsuario,usuariosController.crear)
+router.put('/:id',validateInputUsuario,usuariosController.actualizar)
+router.delete('/:id',usuariosController.eliminar)
+module.exports=router

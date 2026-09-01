@@ -1,0 +1,11 @@
+const express=require('express')
+const router=express.Router()
+const metasAhorroController=require('../controllers/metas_ahorro.controller')
+const {validateInputMetaAhorro}=require('../middlewares/metas_ahorro-validator')
+router.get('/',metasAhorroController.obtenerTodas)
+router.get('/usuario/:usuario_id',metasAhorroController.obtenerPorUsuario)
+router.get('/:id',metasAhorroController.obtenerPorId)
+router.post('/',validateInputMetaAhorro,metasAhorroController.crear)
+router.put('/:id',validateInputMetaAhorro,metasAhorroController.actualizar)
+router.delete('/:id',metasAhorroController.eliminar)
+module.exports=router
