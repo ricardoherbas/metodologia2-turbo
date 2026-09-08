@@ -1,0 +1,1 @@
+// guardProtectedPage() + CRUD de categorias
