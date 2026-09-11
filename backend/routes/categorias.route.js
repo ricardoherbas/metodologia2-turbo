@@ -1,0 +1,10 @@
+const express=require('express')
+const router=express.Router()
+const categoriasController=require('../controllers/categorias.controller')
+const {validarCategoria}=require('../middlewares/categorias-validator')
+router.get('/',categoriasController.obtenerTodas)
+router.get('/:id',categoriasController.obtenerPorId)
+router.post('/',validarCategoria,categoriasController.crear)
+router.put('/:id',validarCategoria,categoriasController.actualizar)
+router.delete('/:id',categoriasController.eliminar)
+module.exports=router

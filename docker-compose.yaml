@@ -1,0 +1,56 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend_app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=user
+      - DB_PASSWORD=1234
+      - DB_NAME=miapp
+      - OLLAMA_URL=http://ollama:11434
+    depends_on:
+      - db
+      - ollama
+  db:
+    image: postgres:17-alpine
+    container_name: backend_db
+    restart: always
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=miapp
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: backend_pgadmin
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    depends_on:
+      - db
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_KEEP_ALIVE=-1
+    volumes:
+      - ollama_data:/root/.ollama
+volumes:
+  ollama_data:
