@@ -1,0 +1,11 @@
+const express=require('express')
+const router=express.Router()
+const aportesMetasController=require('../controllers/aportes_metas.controller')
+const {validateInputAporteMeta}=require('../middlewares/aportes_metas-validator')
+router.get('/',aportesMetasController.obtenerTodas)
+router.get('/meta/:meta_id',aportesMetasController.obtenerPorMeta)
+router.get('/:id',aportesMetasController.obtenerPorId)
+router.post('/',validateInputAporteMeta,aportesMetasController.crear)
+router.put('/:id',validateInputAporteMeta,aportesMetasController.actualizar)
+router.delete('/:id',aportesMetasController.eliminar)
+module.exports=router

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Movimientos</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+<!-- Lista + form de movimientos (gasto/ingreso). Requiere sesion -->
+<form id="form-movimiento">
+    <select id="tipo" required>
+        <option value="gasto">Gasto</option>
+        <option value="ingreso">Ingreso</option>
+    </select>
+
+    <select id="categoria_id" required></select>
+
+    <input type="number" id="monto" placeholder="Monto" step="0.01" required />
+    <input type="date" id="fecha" required />
+    <input type="text" id="descripcion" placeholder="Descripción (opcional)" />
+
+    <button type="submit">Agregar</button>
+</form>
+
+<ul id="lista-movimientos"></ul>
+
+<script type="module" src="js/pages/movimientos.js"></script>
+</body>
+</body>
+</html>
+

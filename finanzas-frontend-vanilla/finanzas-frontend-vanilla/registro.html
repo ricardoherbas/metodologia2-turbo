@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Crear cuenta</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <form id="registro-form" class="auth-form">
+      <h1>Crear cuenta</h1>
+
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" minlength="6" required />
+
+      <p id="registro-error" class="form-error" hidden></p>
+
+      <button type="submit">Crear cuenta</button>
+
+      <p>¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a></p>
+    </form>
+  </div>
+
+<script type="module" src="js/pages/registro.js"></script>
+</body>
+</html>

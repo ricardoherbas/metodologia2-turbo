@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Finanzas - Inicio</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+<!-- Esta página no muestra nada: solo decide a dónde mandar al usuario -->
+<script type="module">
+  import { redirectSegunSesion } from './js/utils/protectedPage.js';
+  redirectSegunSesion();
+</script>
+</body>
+</html>

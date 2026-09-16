@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Detalle de meta</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+<!-- Detalle de una meta + sus aportes (?id= en la URL). Requiere sesion -->
+<h2 id="nombre-meta-titulo"></h2>
+<p id="resumen-meta"></p>
+
+<form id="form-aporte">
+    <input type="number" id="monto-aporte" placeholder="Monto del aporte" step="0.01" required />
+    <input type="text" id="descripcion-aporte" placeholder="Descripción (opcional)" />
+    <button type="submit">Agregar aporte</button>
+</form>
+
+<ul id="lista-aportes"></ul>
+
+<script type="module" src="js/pages/metaDetalle.js"></script>
+</body>
+</html>

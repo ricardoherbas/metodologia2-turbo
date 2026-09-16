@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<title>Dashboard</title>
+<link rel="stylesheet" href="css/reset.css" />
+<link rel="stylesheet" href="css/variables.css" />
+<link rel="stylesheet" href="css/layout.css" />
+<link rel="stylesheet" href="css/components.css" />
+<link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <header id="navbar" class="navbar"></header>
+
+  <div class="app-layout">
+    <aside id="sidebar" class="sidebar"></aside>
+
+    <main class="content">
+      <h1>Dashboard</h1>
+
+      <section class="resumen-grid">
+        <div class="resumen-card">
+          <span>Ingresos</span>
+          <strong id="total-ingresos">$0</strong>
+        </div>
+        <div class="resumen-card">
+          <span>Gastos</span>
+          <strong id="total-gastos">$0</strong>
+        </div>
+        <div class="resumen-card">
+          <span>Balance</span>
+          <strong id="total-balance">$0</strong>
+        </div>
+      </section>
+
+      <section>
+        <h2>Gastos por categoría</h2>
+        <ul id="lista-categorias"></ul>
+      </section>
+
+      <section>
+        <h2>Metas activas</h2>
+        <ul id="lista-metas"></ul>
+      </section>
+    </main>
+  </div>
+
+<script type="module" src="js/pages/dashboard.js"></script>
+</body>
+</html>
