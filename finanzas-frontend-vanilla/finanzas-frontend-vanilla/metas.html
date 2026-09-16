@@ -11,6 +11,18 @@
 </head>
 <body>
 <!-- Lista de metas del usuario con barra de progreso. Requiere sesion -->
+<form id="form-meta">
+    <input type="text" id="nombre-meta" placeholder="Nombre de la meta" required />
+    <input type="number" id="monto-objetivo" placeholder="Monto objetivo" step="0.01" required />
+    <input type="date" id="fecha-limite" />
+
+    <button type="submit">Crear meta</button>
+</form>
+
+<ul id="lista-metas"></ul>
+
+<script type="module" src="js/pages/metas.js"></script>
+</body>
 <script type="module" src="js/pages/metas.js"></script>
 </body>
 </html>
