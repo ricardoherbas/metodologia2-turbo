@@ -4,6 +4,6 @@ const iaController = require('../controllers/ia.controller')
 const { consultaValidator } = require('../middlewares/ia-validator')
 const { verificarToken } = require('../middlewares/auth.middleware')
 
-router.post('/consultar', consultaValidator,verificarToken, iaController.consultarIA)
-
+router.post('/consultar', consultaValidator, iaController.consultarIA)
+//verificarToken,
 module.exports = router
