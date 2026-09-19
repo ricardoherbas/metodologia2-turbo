@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const pool = require('../config/conexion-db')
-const { generarToken } = require('../middleware/auth.middleware')
+const { generarToken } = require('../middlewares/auth.middleware')
 
 const login = async (email, password) => {
   const resultado = await pool.query(
