@@ -4,7 +4,7 @@ const generarToken = (usuario) => {
   return jwt.sign(
     { id: usuario.id, email: usuario.email },
     process.env.JWT_SECRET || "clave_secreta",
-    { expiresIn: '24h' }
+    { expiresIn: '2h' }
   )
 }
 
@@ -21,7 +21,7 @@ const verificarToken = (req, res, next) => {
     }
 
     const token = partes[1]
-    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "clave_secreta")
 
     req.usuario = { id: decoded.id, email: decoded.email }
     next()
