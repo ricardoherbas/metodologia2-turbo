@@ -42,6 +42,7 @@ Pregunta:
 ${pregunta}`
 
   let sql = await conexionIA(MODELO_IA, prompt)
+
   sql = sql.replace(/```sql|```/gi, '').trim()
   const match = sql.match(/(SELECT|WITH)[\s\S]*/i)
   sql = match ? match[0].trim() : sql.trim()
