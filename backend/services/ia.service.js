@@ -9,8 +9,6 @@ Usuario actual: ${usuarioId}
 
 Reglas obligatorias:
 - Usa únicamente tablas,columnas y datos presentes en el contexto.
-- Interpreta la intención de la pregunta antes de generar SQL.
-- No inventes tablas,columnas,valores,categorías,descripciones ni metas.
 - Respeta siempre la relación entre los datos.
 - Los datos privados deben pertenecer al usuario ${usuarioId}.
 - Movimientos: filtra siempre por usuario_id=${usuarioId}.
@@ -64,18 +62,12 @@ async function generarRespuesta(pregunta, resultado) {
 
 Reglas obligatorias:
 - Usa únicamente los datos obtenidos.
-- No inventes información ni cantidades.
-- Interpreta los datos antes de responder.
 - Si los datos permiten calcular una diferencia,porcentaje,total o comparación,puedes hacerlo.
 - Si los datos no permiten responder,no inventes una respuesta.
 - Sé claro,natural y breve.
-- No menciones SQL,PostgreSQL,base de datos,IA,prompt ni procesos internos.
-- Máximo 3 oraciones.
+- Máximo 2 oraciones.
 - Sin markdown.
-- No inventes plazos,fechas ni cantidades de meses.
-- Si no existe fecha_limite ni el usuario indicó un plazo,no calcules un ahorro mensual exacto.
-- Si falta el plazo,explica que se necesita conocer la fecha límite para calcular cuánto ahorrar por mes.
-- Si existe monto_faltante,úsalo para explicar cuánto dinero falta.
+- No inventes plazos,fechas ni cantidades de meses ni montos.
 - Si existe fecha_limite,puedes explicar el plan de ahorro usando solamente los datos disponibles.
 - Responde solamente con la respuesta final.
 
