@@ -31,8 +31,7 @@ const registrar = async (nombre, email, password) => {
   )
 
   const usuario = resultado.rows[0]
-  const token = generarToken(usuario)
-  return { usuario, token }
+  return { usuario}
 }
 
 const obtenerPerfil = async (id) => {
