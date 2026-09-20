@@ -98,7 +98,6 @@ async function obtenerContextoIA(usuarioId) {
         monto_actual,
         estado,
         fecha_limite,
-        fecha_limite - CURRENT_DATE AS dias_restantes,
         ROUND(
           (monto_actual / NULLIF(monto_objetivo, 0)) * 100,
           2
@@ -115,7 +114,6 @@ async function obtenerContextoIA(usuarioId) {
         meta.monto_actual,
         meta.estado,
         meta.fecha_limite || '-',
-        meta.dias_restantes ?? '-',
         `${meta.porcentaje || 0}%`
       ].join(','))
       .join(';')
@@ -181,7 +179,7 @@ R=movimientos.usuario_id>usuarios.id,movimientos.categoria_id>categorias.id,meta
 C=${categoriasTexto || '-'}
 M[id,tipo,cat_id,cat,monto,desc,fecha]=${movimientosTexto || '-'}
 D=${descripcionesTexto || '-'}
-G[id,nombre,obj,actual,estado,limite,dias,%]=${metasTexto || '-'}
+G[id,nombre,obj,actual,estado,limite,%]=${metasTexto || '-'}
 A[id,meta_id,meta,monto,fecha]=${aportesTexto || '-'}
 S=ingresos:${resumenFinanciero.ingresos},gastos:${resumenFinanciero.gastos},saldo:${resumenFinanciero.saldo}
 `.trim()
