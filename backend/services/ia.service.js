@@ -1,4 +1,4 @@
-const { conexionIA, precargarModelo } = require('../config/conexion-ia')
+const { conexionIA} = require('../config/conexion-ia')
 const MODELO_IA = 'qwen2.5-coder:14b'
 
 async function generarSQL(pregunta, usuarioId, contexto) {
@@ -23,12 +23,4 @@ async function generarRespuesta(pregunta, resultado) {
   return await conexionIA(MODELO_IA, prompt)
 }
 
-async function iniciarIA() {
-  await precargarModelo(MODELO_IA)
-}
-
-module.exports = {
-  generarSQL,
-  generarRespuesta,
-  iniciarIA
-}
+module.exports = { generarSQL, generarRespuesta}
