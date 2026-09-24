@@ -1,31 +1,29 @@
 const validarCategoria = (req, res, next) => {
-    const { nombre } = req.body;
-    if (nombre === undefined) {
-        return res.status(400).json({
-            ok: false,
-            mensaje: "El nombre de la categoría es obligatorio"
-        });
-    }
-    if (typeof nombre !== "string") {
-        return res.status(400).json({
-            ok: false,
-            mensaje: "El nombre de la categoría debe ser texto"
-        });
-    }
+  const { nombre } = req.body;
+  const errors = [];
+
+  if (nombre === undefined) {
+    errors.push("El nombre de la categoría es obligatorio");
+  } else if (typeof nombre !== "string") {
+    errors.push("El nombre de la categoría debe ser texto");
+  } else {
     const nombreLimpio = nombre.trim();
     if (nombreLimpio.length === 0) {
-        return res.status(400).json({
-            ok: false,
-            mensaje: "El nombre de la categoría no puede estar vacío"
-        });
+      errors.push("El nombre de la categoría no puede estar vacío");
     }
     if (nombreLimpio.length > 50) {
-        return res.status(400).json({
-            ok: false,
-            mensaje: "El nombre de la categoría no puede superar los 50 caracteres"
-        });
+      errors.push("El nombre de la categoría no puede superar los 50 caracteres");
     }
-    req.body.nombre = nombreLimpio;
-    next();
+    if (errors.length === 0) {
+      req.body.nombre = nombreLimpio;
+    }
+  }
+
+  if (errors.length > 0) {
+    return res.status(400).json({ errors });
+  }
+
+  next();
 };
-module.exports = { validarCategoria};
+
+module.exports = { validarCategoria };

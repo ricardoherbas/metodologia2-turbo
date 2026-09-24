@@ -101,7 +101,7 @@ FOR EACH ROW EXECUTE FUNCTION actualizar_monto_meta();
 INSERT INTO usuarios (nombre, email, password_hash)
 VALUES 
 ('Juan Pérez', 'juan@example.com', 'hash123'),
-('María Gómez', 'maria@example.com', 'hash456'),
+('María Gómez', 'maria@example.com', 'hash456'), 
 ('Carlos López', 'carlos@example.com', 'hash789');
 
 INSERT INTO categorias (nombre)

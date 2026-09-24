@@ -183,9 +183,9 @@ G[id,nombre,obj,actual,estado,limite,%]=${metasTexto || '-'}
 A[id,meta_id,meta,monto,fecha]=${aportesTexto || '-'}
 S=ingresos:${resumenFinanciero.ingresos},gastos:${resumenFinanciero.gastos},saldo:${resumenFinanciero.saldo}
 `.trim()
-    console.log('📚 Contexto IA generado')
-    console.log(`📏 Caracteres: ${contexto.length}`)
-    console.log(`🪙 Tokens aproximados: ${Math.ceil(contexto.length / 4)}`)
+    console.log('Contexto IA generado')
+    console.log(`Caracteres: ${contexto.length}`)
+    console.log(`Tokens aproximados: ${Math.ceil(contexto.length / 4)}`)
     return contexto
   } catch (err) {
     console.error('Error obteniendo contexto de IA:', err)
