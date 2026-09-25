@@ -100,9 +100,7 @@ FOR EACH ROW EXECUTE FUNCTION actualizar_monto_meta();
 
 INSERT INTO usuarios (nombre, email, password_hash)
 VALUES 
-('Juan Pérez', 'juan@example.com', 'hash123'),
-('María Gómez', 'maria@example.com', 'hash456'), 
-('Carlos López', 'carlos@example.com', 'hash789');
+('Juan Pérez', 'juan@example.com', 'hash123');
 
 INSERT INTO categorias (nombre)
 VALUES 
@@ -115,16 +113,16 @@ INSERT INTO movimientos (usuario_id, categoria_id, tipo, monto, descripcion, fec
 VALUES
 (1, 1, 'gasto', 1200.50, 'Supermercado La Anónima', '2026-08-01'),
 (1, 2, 'gasto', 500.00, 'Colectivo urbano', '2026-08-02'),
-(2, 3, 'gasto', 800.00, 'Cine y cena', '2026-08-05'),
-(3, 4, 'ingreso', 2500.00, 'Reembolso obra social', '2026-08-10'),
-(2, 1, 'gasto', 300.00, 'Almuerzo en restaurante', '2026-08-12');
+(1, 3, 'gasto', 800.00, 'Cine y cena', '2026-08-05'),
+(1, 4, 'ingreso', 2500.00, 'Reembolso obra social', '2026-08-10'),
+(1, 1, 'gasto', 300.00, 'Almuerzo en restaurante', '2026-08-12');
 
 
 INSERT INTO metas_ahorro (usuario_id, nombre, monto_objetivo, fecha_limite)
 VALUES
 (1, 'Viaje a Bariloche', 50000.00, '2026-12-15'),
-(2, 'Comprar notebook nueva', 300000.00, '2027-03-01'),
-(3, 'Fondo de emergencia', 100000.00, '2027-01-01'),
+(1, 'Comprar notebook nueva', 300000.00, '2027-03-01'),
+(1, 'Fondo de emergencia', 100000.00, '2027-01-01'),
 (1, 'Curso de robótica', 80000.00, '2027-06-01');
 
 
