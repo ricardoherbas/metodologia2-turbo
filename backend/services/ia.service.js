@@ -19,7 +19,7 @@ async function generarRespuesta(pregunta, resultado) {
   if (!resultado || resultado.length === 0) {
     return 'No encontré datos relacionados con tu consulta.'
   }
-  const prompt = `RESPUESTA=ESPAÑOL;REGLAS=DATOS:solo_resultado|CALCULOS:solo_si_los_datos_lo_permiten|INVENTAR:NO|PLAZOS:solo_si_existen_en_datos|FECHAS:solo_si_existen_en_datos|MONTOS:solo_si_existen_en_datos|CLARO:SI|BREVE:SI|MAX_ORACIONES:2|MARKDOWN:NO|SALIDA:SOLO_RESPUESTA;DATOS:${JSON.stringify(resultado)};PREGUNTA:${pregunta}`
+  const prompt = `RESPUESTA=ESPAÑOL;REGLAS=DATOS:solo_resultado|CALCULOS:solo_si_los_datos_lo_permiten|INVENTAR:NO|PLAZOS:solo_si_existen_en_datos|FECHAS:solo_si_existen_en_datos|MONTOS:solo_si_existen_en_datos|PERSONA:segunda_persona|CLARO:SI|BREVE:SI|MAX_ORACIONES:2|MARKDOWN:NO|SALIDA:SOLO_RESPUESTA;DATOS:${JSON.stringify(resultado)};PREGUNTA:${pregunta}`;
   return await conexionIA(MODELO_IA, prompt)
 }
 
