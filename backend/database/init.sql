@@ -6,6 +6,19 @@ CREATE TABLE usuarios (
     creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE recuperacion_password (
+    id SERIAL PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    token_hash VARCHAR(255) NOT NULL,
+    expira_en TIMESTAMP NOT NULL,
+    usado BOOLEAN DEFAULT FALSE,
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (usuario_id)
+        REFERENCES usuarios(id)
+        ON DELETE CASCADE
+);
+
 CREATE TABLE categorias (
     id SERIAL PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL
@@ -100,7 +113,7 @@ FOR EACH ROW EXECUTE FUNCTION actualizar_monto_meta();
 
 INSERT INTO usuarios (nombre, email, password_hash)
 VALUES 
-('Juan Pérez', 'juan@example.com', 'hash123');
+('ricardo herbas', 'sebastianherbas@hotmail.com', 'hash123');
 
 INSERT INTO categorias (nombre)
 VALUES 

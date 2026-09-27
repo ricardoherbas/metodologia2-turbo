@@ -24,7 +24,6 @@ class Server {
     this.app.use('/api/movimientos', require('../routes/movimientos.route'))
     this.app.use('/api/metas-ahorro', require('../routes/metas_ahorro.route'))
     this.app.use('/api/aportes-metas', require('../routes/aportes_metas.route'))
-    this.app.use('/api/ia', require('../routes/ia.route'))
   }
 
   errorHandlerGlobal() {
