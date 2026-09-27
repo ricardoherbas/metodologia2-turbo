@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   app:
     build:
@@ -9,6 +7,8 @@ services:
     restart: always
     ports:
       - "3000:3000"
+    env_file:
+      - ./backend/.env
     environment:
       - DB_HOST=db
       - DB_PORT=5432
@@ -17,9 +17,6 @@ services:
       - DB_NAME=miapp
       - SMTP_HOST=smtp.gmail.com
       - SMTP_PORT=587
-      - SMTP_USER=${SMTP_USER}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
-      - FRONTEND_URL=${FRONTEND_URL}
     depends_on:
       - db
 
