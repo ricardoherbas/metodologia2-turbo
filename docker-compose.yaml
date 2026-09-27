@@ -15,10 +15,8 @@ services:
       - DB_USER=user
       - DB_PASSWORD=1234
       - DB_NAME=miapp
-      - OLLAMA_URL=http://ollama:11434
     depends_on:
       - db
-      - ollama
 
   db:
     image: postgres:17-alpine
@@ -45,18 +43,6 @@ services:
     depends_on:
       - db
 
-  ollama:
-    image: ollama/ollama:latest
-    container_name: ollama
-    restart: always
-    ports:
-      - "11434:11434"
-    environment:
-      - OLLAMA_HOST=0.0.0.0:11434
-      - OLLAMA_KEEP_ALIVE=-1
-    volumes:
-      - ollama_data:/root/.ollama
-
   frontend:
     image: nginx:alpine
     container_name: frontend_app
@@ -66,5 +52,4 @@ services:
     volumes:
       - ./frontend:/usr/share/nginx/html
 
-volumes:
-  ollama_data:
+
