@@ -4,26 +4,40 @@ jest.mock('../services/usuarios.service', () => ({
     nombre: 'Ricardo',
     email: 'test@test.com'
   })
-}));
+}))
 
-const request = require('supertest');
-const Server = require('../core/server');
+const request = require('supertest')
+const jwt = require('jsonwebtoken')
+const Server = require('../core/server')
 
-const server = new Server();
-const app = server.getApp();
+const server = new Server()
+const app = server.getApp()
 
 describe('Usuarios routes', () => {
   it('POST /api/usuarios crea usuario', async () => {
+    const token = jwt.sign(
+      {
+        id: 1,
+        email: 'test@test.com'
+      },
+      process.env.JWT_SECRET
+    )
+
     const res = await request(app)
       .post('/api/usuarios')
-      .send({ nombre: 'Ricardo', email: 'test@test.com', password: '1234' });
+      .set('Authorization', `Bearer ${token}`)
+      .send({
+        nombre: 'Ricardo',
+        email: 'test@test.com',
+        password: '1234'
+      })
 
-    // aceptamos éxito o error de validación
-    expect([201,400]).toContain(res.statusCode);
+    expect([201, 400]).toContain(res.statusCode)
+
     if (res.statusCode === 201) {
-      expect(res.body.usuario).toBeDefined();
-      expect(res.body.usuario.nombre).toBe('Ricardo');
-      expect(res.body.usuario.email).toBe('test@test.com');
+      expect(res.body.usuario).toBeDefined()
+      expect(res.body.usuario.nombre).toBe('Ricardo')
+      expect(res.body.usuario.email).toBe('test@test.com')
     }
-  });
-});
+  })
+})
